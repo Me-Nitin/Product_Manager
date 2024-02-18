@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "name": "Casual Shoe",
+      "price": "$ 50",
+      "brand": "Nike",
+      "inventoryStatus": false,
+      "id": 1
+    },
+    {
+      "name": "Casual Shirt",
+      "price": "$ 500",
+      "brand": "Nike",
+      "inventoryStatus": true,
+      "id": 2
+    },
+    {
+      "id": "ec05",
+      "name": "Gudia",
+      "price": "$100000",
+      "brand": "Gudia",
+      "inventorystatus": true
+    },
+    {
+      "id": "f48d",
+      "name": "Gudia",
+      "price": "$100000",
+      "brand": "Gudia",
+      "inventorystatus": true
+    },
+    {
+      "id": "4306",
+      "name": "Gudia",
+      "price": "$100000",
+      "brand": "Gudia",
+      "inventorystatus": true
+    },
+    {
+      "id": "4f5e",
+      "name": "Gudia",
+      "price": "$100000",
+      "brand": "Gudia",
+      "inventorystatus": true
+    },
+    {
+      "id": "3750",
+      "name": "Gudia",
+      "price": "$100000",
+      "brand": "Gudia",
+      "inventorystatus": true
+    },
+    {
+      "id": "7177",
+      "name": "Gudia",
+      "price": "$100000",
+      "brand": "Gudia",
+      "inventorystatus": true
+    }
+  ]
+}

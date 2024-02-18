@@ -56,6 +56,14 @@ export default {
   async addproduct(){
     this.submitted=true;
     let result = await this.$validator.validate();
+    if(result){
+        this.$emit('addproduct',{
+            name: this.form.name,
+            price: '$'+ this.form.price,
+            brand: this.form.brand,
+            inventorystatus: this.form.inventorystatus==='true'
+        })
+    }
     console.log(this.form);
     console.log('Result',result);
    }
