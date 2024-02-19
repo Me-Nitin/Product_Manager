@@ -8,7 +8,7 @@
         align="center"
         v-for="product in products" :key="product.id"
        class="my-3">
-        <b-badge class="mb-2" :style=" { backgroundColor: product.inventoryStatus?  'green': 'red' }">{{product.inventoryStatus ? 'IN STOCK':'OUT OF STOCK'}}</b-badge>       
+        <b-badge class="mb-2" :style=" { backgroundColor: product.inventoryStatus?  'green': 'red' }"> {{product.inventoryStatus? 'IN STOCK':'OUT OF STOCK'}} </b-badge>       
         <b-card-text><strong>Name: </strong> {{product.name}}</b-card-text>
         <b-card-text><strong>Price: </strong> {{product.price}}</b-card-text>
         <b-card-text><strong>Brand: </strong> {{product.brand}}</b-card-text>

@@ -5,14 +5,14 @@
       "price": "$ 50",
       "brand": "Nike",
       "inventoryStatus": false,
-      "id": 1
+      "id": "1"
     },
     {
       "name": "Casual Shirt",
       "price": "$ 500",
       "brand": "Nike",
       "inventoryStatus": true,
-      "id": 2
+      "id": "2"
     },
     {
       "id": "ec05",
@@ -54,6 +54,41 @@
       "name": "Gudia",
       "price": "$100000",
       "brand": "Gudia",
+      "inventorystatus": true
+    },
+    {
+      "id": "6339",
+      "name": "T-Shirt",
+      "price": "$500",
+      "brand": "Nike",
+      "inventorystatus": true
+    },
+    {
+      "id": "f645",
+      "name": "T-Shirt",
+      "price": "$500",
+      "brand": "Nike",
+      "inventorystatus": false
+    },
+    {
+      "id": "c7a9",
+      "name": "T-Shirt",
+      "price": "$500",
+      "brand": "Nike",
+      "inventorystatus": true
+    },
+    {
+      "id": "625f",
+      "name": "T-Shir",
+      "price": "$500",
+      "brand": "Nike",
+      "inventorystatus": true
+    },
+    {
+      "id": "2bd1",
+      "name": "Shoesss",
+      "price": "$10",
+      "brand": "puma",
       "inventorystatus": true
     }
   ]
