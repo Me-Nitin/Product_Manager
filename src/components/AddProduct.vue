@@ -63,6 +63,13 @@ export default {
             brand: this.form.brand,
             inventoryStatus: this.form.inventoryStatus=== 'true'
         });
+        this.form = {
+            name: '',
+            price: '',
+            brand: '',
+            inventoryStatus: ''
+        };
+        this.submitted= false;
     }
     console.log(this.form);
     console.log('Result',result);
