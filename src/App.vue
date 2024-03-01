@@ -3,8 +3,8 @@
     <AppHeader/>
    <b-container>
     <b-row class="justify-content-center">
-      <AddProduct @addproduct="addProduct" />
-      <ListProduct :products="productList"/>
+      <AddProduct @addProduct="addProduct" />
+      <ListProduct :products="productList" @deleteProduct="deleteProduct" @updateProduct="updateProduct"/>
     </b-row>
    </b-container>
   </div>
@@ -46,17 +46,36 @@ export default {
 
   async addProduct(newProduct) {
     try{
-    await axios.post('http://localhost:3000/products',newProduct);
+    await axios.post('http://localhost:3000/products', newProduct);
     this.getProductList();
     }
     catch(error){
-   console.log('Error', error)
+   console.log('Error', error);
     }
-   console.log('newProduct', newProduct);
-  }
-   
-  
   },
+
+  async deleteProduct(productID){
+console.log('Product ID',productID);
+try{
+    await axios.delete(`http://localhost:3000/products/${productID}`);
+    this.getProductList();
+    }
+    catch(error){
+   console.log('Error', error);
+    }
+  },
+
+async updateProduct(updatedProduct){
+console.log(updatedProduct);
+try{
+    await axios.put(`http://localhost:3000/products/${updatedProduct.id}`, updatedProduct);
+    this.getProductList();
+    }
+    catch(error){  
+   console.log('Error', error);
+    }
+  }
+    },
 
   mounted (){
     this.getProductList();

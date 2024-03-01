@@ -1,9 +1,14 @@
 <template>
-
-  <b-col md="4" class="m-3">
-    <b-card header="Add Product">
-     <b-card-body>
-        <b-form autocomplete="off">
+  <div>
+     <b-button  @click="modalShow = !modalShow"><i class="fa-solid fa-pen-to-square"></i></b-button>
+      <b-modal 
+      v-model="modalShow"
+      title="Update Product"
+      @show="showModal"
+      @hidden="resetModal"
+      @ok="handleSubmit"
+      >
+      <b-form autocomplete="off">
             <b-form-group label="Name">
                 <b-form-input v-validate="{required:true,min:3}" v-model="form.name" id="name" name="name" trim></b-form-input>
                 <div v-if="submitted" class="error-message">
@@ -33,17 +38,18 @@
                 </div> 
             </b-form-group>
        </b-form>  
-     </b-card-body>
-     <b-button class="block" variant="primary" @click="addproduct">Add Product</b-button>
-    </b-card>
-  </b-col>
+      </b-modal>
+  </div>
 </template>
 
 <script>
 export default {
- data(){
-    return {
-        form: {
+name: 'UpdateProduct',
+props: ['product'],
+data(){
+    return{
+        modalShow: false,
+         form: {
             name: '',
             price: '',
             brand: '',
@@ -51,28 +57,43 @@ export default {
         },
         submitted: false
     }
- },
- methods: {
-  async addproduct(){
-    this.submitted=true;
-    let result = await this.$validator.validate();
-    if(result){
-        this.$emit('addProduct',{
-            name: this.form.name,
-            price: '$'+ this.form.price,
-            brand: this.form.brand,
-            inventoryStatus: this.form.inventoryStatus=== 'true'
-        });
+},
+methods:{
+    showModal(){
+       console.log("Modal opened");
+       this.form =  {
+           name: this.$props.product.name,
+           price: this.$props.product.price.split('$')[1],
+           brand: this.$props.product.brand,
+           inventoryStatus: this.$props.product.inventoryStatus.toString()
+       }
+    },
+    resetModal(){
+console.log("Modal closed");
+this.form = {};
+    },
+   async handleSubmit(bvModalEvent){
+         bvModalEvent.preventDefault();
+         console.log('submitted');
+         this.submitted=true;
+         let result = await this.$validator.validate();
+         console.log(result);
+         if(result){
+            this.$emit('updateProduct',{
+                name: this.form.name,
+                price: '$'+ this.form.price,
+                brand: this.form.brand,
+                inventoryStatus: this.form.inventoryStatus ==='true',
+                id: this.$props.product.id
+            });
+            this.modalShow = false;
+            this.submitted = false;
+         }
     }
-    console.log(this.form);
-    console.log('Result',result);
-   }
- }
+}
 }
 </script>
 
-<style >
-.block{
-    width: 100%;
-}
+<style>
+
 </style>
